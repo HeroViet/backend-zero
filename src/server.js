@@ -5,9 +5,14 @@ require("dotenv").config();
 const app = express();
 const port = process.env.PORT || 3000;
 
+//config template engine
 app.set("views", path.join(__dirname, "views"));
 app.set("views engine", "ejs");
 
+//config static files
+app.use(express.static(path.join(__dirname, "public")));
+
+//Khai bao route
 app.get("/", (req, res) => {
   res.send("Hello World!!");
 });
